@@ -18,13 +18,13 @@ export default {
     return {
       friends: [
         {
-          username: 'Wildan'
+          username: 'Ricky'
         },
         {
-          username: 'Daffa'
+          username: 'Carlos'
         },
         {
-          username: 'Raka'
+          username: 'Kobe'
         }
       ],
       username: '',
@@ -37,6 +37,7 @@ export default {
     addFriends(e) {
       e.preventDefault()
       this.friends.push({username: this.username})
+      this.username = ''
     }
   }
 }
