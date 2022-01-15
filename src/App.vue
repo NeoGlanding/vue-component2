@@ -3,7 +3,7 @@
     <input v-model="username" type="text">
     <button type="submit">Submit</button>
   </form>
-  <PropsEvent @get-lower-case="clgLowerCaseUpper" v-for="(el, index) in friends" :key="index" :username="el.username" />
+  <PropsEvent @delete-friends="deleteFriends" v-for="(el, index) in friends" :key="index" :username="el.username" />
 </template>
 
 <script>
@@ -31,8 +31,8 @@ export default {
     }
   },
   methods: {
-    clgLowerCaseUpper(lower, upper) {
-      console.log(lower, upper)
+    deleteFriends(username) {
+      this.friends = this.friends.filter(el => el.username !== username)
     },
     addFriends(e) {
       e.preventDefault()

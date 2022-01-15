@@ -1,5 +1,5 @@
 <template>
-    <div @click="getLowerCase" class="">
+    <div @click="deleteUsername" class="">
         <p :class="{odd: username.length % 2 !== 0}">{{ username }}</p>
     </div>
 </template>
@@ -12,8 +12,8 @@ export default {
         }
     },
     methods: {
-        getLowerCase() {
-            this.$emit('get-lower-case', this.username.toLowerCase(), this.username.toUpperCase())
+        deleteUsername() {
+            this.$emit('delete-friends', this.username)
         }
     }
 }
