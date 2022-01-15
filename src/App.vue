@@ -1,17 +1,17 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <form @submit="addFriends">
+    <input v-model="username" type="text">
+    <button type="submit">Submit</button>
+  </form>
   <PropsEvent @get-lower-case="clgLowerCaseUpper" v-for="(el, index) in friends" :key="index" :username="el.username" />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 import PropsEvent from './components/PropsEvent.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld,
     PropsEvent
   },
   data() {
@@ -26,12 +26,17 @@ export default {
         {
           username: 'Raka'
         }
-      ]
+      ],
+      username: '',
     }
   },
   methods: {
     clgLowerCaseUpper(lower, upper) {
       console.log(lower, upper)
+    },
+    addFriends(e) {
+      e.preventDefault()
+      this.friends.push({username: this.username})
     }
   }
 }

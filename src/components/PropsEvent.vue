@@ -1,6 +1,6 @@
 <template>
     <div @click="getLowerCase" class="">
-        <p :class="{odd: username.length % 2 === 0}">{{ username }}</p>
+        <p :class="{odd: username.length % 2 !== 0}">{{ username }}</p>
     </div>
 </template>
 
